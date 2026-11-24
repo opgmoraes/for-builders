@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.env*
+.vercel/
+for-builders-publicacao.zip
+previous-preview.html
+react-preview.html
+style.css
+app.js
+/assets/
+/css/
+/js/
