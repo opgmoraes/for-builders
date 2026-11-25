@@ -15,9 +15,9 @@
 .courtyard-art>.temple-distance{z-index:0;object-fit:cover;object-position:center}
 .courtyard-art>.temple-clouds{z-index:1;object-fit:cover;opacity:.35;mix-blend-mode:screen;mask-image:linear-gradient(to bottom,#000 0 34%,transparent 56%)}
 .courtyard-art>.temple-left,.courtyard-art>.temple-right,.courtyard-art>.temple-floor{z-index:3;object-fit:cover;object-position:center}
-.courtyard-art>.temple-left{mask-image:linear-gradient(to right,#000 0 12%,rgba(0,0,0,.9) 16%,transparent 25%)}
-.courtyard-art>.temple-right{mask-image:linear-gradient(to left,#000 0 12%,rgba(0,0,0,.9) 16%,transparent 25%)}
-.courtyard-art>.temple-floor{z-index:4;mask-image:linear-gradient(to bottom,transparent 0 70%,rgba(0,0,0,.55) 80%,#000 89%)}
+.courtyard-art>.temple-left{mask-image:linear-gradient(to right,transparent 0%,#000 7% 12%,rgba(0,0,0,.9) 16%,transparent 27%)}
+.courtyard-art>.temple-right{mask-image:linear-gradient(to left,transparent 0%,#000 7% 12%,rgba(0,0,0,.9) 16%,transparent 27%)}
+.courtyard-art>.temple-floor{z-index:4;opacity:.62;mask-image:linear-gradient(to bottom,transparent 0 68%,rgba(0,0,0,.25) 80%,#000 98%)}
 .temple-rays{position:absolute;z-index:2;inset:-20%;pointer-events:none;transform-origin:82% 8%;background:conic-gradient(from 168deg at 82% 8%,transparent 0deg,rgba(255,217,145,.26) 7deg,transparent 16deg,rgba(255,221,170,.14) 24deg,transparent 38deg);mix-blend-mode:screen;filter:blur(20px)}
 .temple-shade{position:absolute;z-index:5;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(4,12,22,.44),transparent 42%,rgba(7,14,20,.18)),radial-gradient(ellipse at center,transparent 26%,rgba(4,11,20,.26) 100%)}
 .scene-caption{z-index:6;top:17%;left:0;width:100%;max-width:none;padding:0 7vw;text-shadow:0 3px 26px rgba(3,9,16,.75)}

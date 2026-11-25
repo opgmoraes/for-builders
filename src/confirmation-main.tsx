@@ -18,7 +18,7 @@ function Confirmation() {
         .fromTo('.temple-clouds', { xPercent: -9, yPercent: 4, autoAlpha: 0.16 }, { xPercent: 9, yPercent: -4, autoAlpha: 0.48, duration: 3, ease: 'none' }, 0)
         .fromTo('.temple-left', { xPercent: 23, scale: 1.12 }, { xPercent: -20, scale: 1.02, duration: 2.5, ease: 'none' }, 0)
         .fromTo('.temple-right', { xPercent: -23, scale: 1.12 }, { xPercent: 20, scale: 1.02, duration: 2.5, ease: 'none' }, 0)
-        .fromTo('.temple-floor', { yPercent: -8, scale: 1.18 }, { yPercent: 8, scale: 1.03, duration: 2.5, ease: 'none' }, 0)
+        .fromTo('.temple-floor', { yPercent: -2, scale: 1.07 }, { yPercent: 5, scale: 1.02, duration: 2.5, ease: 'none' }, 0)
         .fromTo('.temple-rays', { autoAlpha: 0.12, rotation: -9 }, { autoAlpha: 0.42, rotation: 0, duration: 2.3, ease: 'none' }, 0.2)
         .fromTo('.temple-shade', { autoAlpha: 0.42 }, { autoAlpha: 0.2, duration: 2.5, ease: 'none' }, 0)
         .fromTo('.scene-caption', { autoAlpha: 0, y: 36 }, { autoAlpha: 1, y: 0, duration: 1.1, ease: 'power2.out' }, 1.1);
