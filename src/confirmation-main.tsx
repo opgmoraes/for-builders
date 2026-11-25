@@ -20,7 +20,7 @@ function Confirmation() {
         .fromTo('.temple-right', { xPercent: -23, scale: 1.12 }, { xPercent: 20, scale: 1.02, duration: 2.5, ease: 'none' }, 0)
         .fromTo('.temple-rays', { autoAlpha: 0.12, rotation: -9 }, { autoAlpha: 0.42, rotation: 0, duration: 2.3, ease: 'none' }, 0.2)
         .fromTo('.temple-shade', { autoAlpha: 0.42 }, { autoAlpha: 0.2, duration: 2.5, ease: 'none' }, 0)
-        .fromTo('.scene-caption', { autoAlpha: 0, y: 36 }, { autoAlpha: 1, y: 0, duration: 1.1, ease: 'power2.out' }, 1.1);
+        .fromTo('.scene-caption', { autoAlpha: 0, y: 36 }, { autoAlpha: 1, y: 0, duration: 0.9, ease: 'power2.out' }, 0.4);
     });
     return () => context.revert();
   }, []);
