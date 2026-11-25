@@ -12,7 +12,7 @@
 
 /* The artwork already contains the paper. Typeset directly on that surface. */
 .press-art{z-index:1}
-.print-sheet{z-index:2;top:25%;left:52%;width:min(28%,300px);height:31%;padding:10px 12px;background:transparent;box-shadow:none;overflow:visible}
+.print-sheet{z-index:2;top:10%;left:52%;width:min(28%,300px);height:31%;padding:10px 12px;background:transparent;box-shadow:none;overflow:visible}
 .sheet-masthead img{width:78px}
 .sheet-masthead span{font-size:7px}
 .sheet-rule{margin:10px 0 14px;height:1px}
@@ -20,5 +20,6 @@
 .sheet-title{font-size:clamp(25px,2.7vw,38px);margin:11px 0 8px}
 .sheet-deck{font-size:9px;line-height:1.3}
 .sheet-columns,.sheet-footer{display:none}
-@media(max-width:700px){.print-sheet{top:31%;left:52%;width:36%;height:25%;padding:3px}.sheet-masthead img{width:51px}.sheet-masthead span{font-size:5px}.sheet-rule{margin:5px 0 7px}.sheet-kicker{font-size:5px}.sheet-title{font-size:clamp(17px,4vw,27px);margin:6px 0}.sheet-deck{font-size:6px}}
-@media(max-width:420px){.print-sheet{top:29%;width:42%}}
+.print-caption{display:none}
+@media(max-width:700px){.print-sheet{top:16%;left:52%;width:36%;height:25%;padding:3px}.sheet-masthead img{width:51px}.sheet-masthead span{font-size:5px}.sheet-rule{margin:5px 0 7px}.sheet-kicker{font-size:5px}.sheet-title{font-size:clamp(17px,4vw,27px);margin:6px 0}.sheet-deck{font-size:6px}}
+@media(max-width:420px){.print-sheet{top:14%;width:42%}}
