@@ -27,7 +27,7 @@ function Confirmation() {
         .fromTo('.sheet-masthead', { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.55 }, 0.72)
         .fromTo('.sheet-title', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.55 }, 0.98)
         .fromTo('.sheet-details', { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.5 }, 1.2)
-        .fromTo('.print-caption', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5 }, 1.4);
+        .fromTo('.story-progress span', { scaleY: 0 }, { scaleY: 1, ease: 'none', duration: 1.6 }, 0);
       gsap.fromTo('.opening-copy > *', { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.7, stagger: 0.12, ease: 'power2.out' });
     });
     return () => context.revert();
@@ -60,7 +60,6 @@ function Confirmation() {
             </div>
             <img className="press-art" src={asset('confirmation-press.png')} alt="Uma prensa editorial imprimindo uma folha" />
           </div>
-          <p className="print-caption">Uma edição de cada vez. Uma ideia de cada vez.</p>
           <div className="story-progress" aria-hidden="true"><span /></div>
         </div>
       </section>
