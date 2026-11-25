@@ -33,7 +33,6 @@ function Confirmation() {
         .fromTo('.paper-description', { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.42 }, 1.14)
         .fromTo('.ink-glint', { xPercent: -90, opacity: 0 }, { xPercent: 80, opacity: 0.7, duration: 0.45 }, 1.34)
         .to('.ink-glint', { opacity: 0, duration: 0.2 }, 1.78)
-        .fromTo('.scene-note', { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.35 }, 1.52)
         .fromTo('.story-progress span', { scaleY: 0 }, { scaleY: 1, duration: 1.8, ease: 'none' }, 0);
     });
     return () => context.revert();
@@ -74,7 +73,6 @@ function Confirmation() {
               <div className="ink-glint" aria-hidden="true" />
             </div>
           </div>
-          <p className="scene-note">Uma edição de cada vez. Uma ideia de cada vez.</p>
           <div className="story-progress" aria-hidden="true"><span /></div>
         </div>
       </section>
