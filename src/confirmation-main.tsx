@@ -6,81 +6,56 @@ import './confirmation.css';
 
 gsap.registerPlugin(ScrollTrigger);
 const asset = (name: string) => `${import.meta.env.BASE_URL}assets/${name}`;
+const home = import.meta.env.BASE_URL;
 
 function Confirmation() {
+  const isPreview = new URLSearchParams(window.location.search).has('preview');
   useLayoutEffect(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const context = gsap.context(() => {
-      gsap.fromTo('.confirmation-intro > *', { opacity: 0, y: 18 }, {
-        opacity: 1, y: 0, duration: 0.75, stagger: 0.1, ease: 'power2.out',
-      });
-      const print = gsap.timeline({
-        scrollTrigger: {
-          trigger: '.print-story',
-          start: 'top top',
-          end: 'bottom bottom',
-          scrub: 0.5,
-          invalidateOnRefresh: true,
-        },
-      });
-      print
-        .fromTo('.press-shadow', { opacity: 0.12, scale: 0.8 }, { opacity: 0.55, scale: 1, duration: 1.7, ease: 'none' }, 0)
-        .fromTo('.press-stack', { yPercent: 10, scale: 0.93 }, { yPercent: 0, scale: 1, duration: 1.7, ease: 'none' }, 0)
-        .fromTo('.paper-layer', { yPercent: 17 }, { yPercent: 0, duration: 1.5, ease: 'none' }, 0.15)
-        .fromTo('.press-wheel', { rotation: -3 }, { rotation: 0, duration: 1.2, ease: 'none' }, 0.15)
-        .fromTo('.paper-mark', { opacity: 0, y: 9 }, { opacity: 1, y: 0, duration: 0.42 }, 0.68)
-        .fromTo('.paper-headline', { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.48 }, 0.9)
-        .fromTo('.paper-description', { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.42 }, 1.14)
-        .fromTo('.ink-glint', { xPercent: -90, opacity: 0 }, { xPercent: 80, opacity: 0.7, duration: 0.45 }, 1.34)
-        .to('.ink-glint', { opacity: 0, duration: 0.2 }, 1.78)
-        .fromTo('.story-progress span', { scaleY: 0 }, { scaleY: 1, duration: 1.8, ease: 'none' }, 0);
+      gsap.fromTo('.welcome-copy > *', { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: 0.85, stagger: 0.12, ease: 'power3.out' });
+      gsap.timeline({ scrollTrigger: { trigger: '.courtyard-story', start: 'top top', end: 'bottom bottom', scrub: 1.4, invalidateOnRefresh: true } })
+        .fromTo('.scene-horizon', { scale: 1.12, yPercent: 5 }, { scale: 1, yPercent: 0, duration: 2.5, ease: 'none' }, 0)
+        .fromTo('.scene-clouds', { xPercent: -5, yPercent: 4 }, { xPercent: 3, yPercent: -4, duration: 2.5, ease: 'none' }, 0)
+        .fromTo('.scene-temples', { scale: 1.13, yPercent: 10 }, { scale: 1, yPercent: 0, duration: 2.2, ease: 'none' }, 0)
+        .fromTo('.scene-foreground', { scale: 1.2, yPercent: 14 }, { scale: 1, yPercent: 0, duration: 2.2, ease: 'none' }, 0)
+        .fromTo('.scene-chair', { autoAlpha: 0, xPercent: -50, yPercent: 28, scale: 0.82 }, { autoAlpha: 1, xPercent: -50, yPercent: 0, scale: 1, duration: 1.55, ease: 'power2.out' }, 0.38)
+        .fromTo('.chair-shadow', { autoAlpha: 0, xPercent: -50, scale: 0.45 }, { autoAlpha: 0.45, xPercent: -50, scale: 1, duration: 1.5, ease: 'none' }, 0.42)
+        .fromTo('.scene-caption', { autoAlpha: 0, xPercent: -50, y: 30 }, { autoAlpha: 1, xPercent: -50, y: 0, duration: 0.8, ease: 'power2.out' }, 1.55);
     });
     return () => context.revert();
   }, []);
 
   return <>
     <header className="confirmation-header">
-      <a href={import.meta.env.BASE_URL} aria-label="For Builders, voltar ao início"><img src={asset('logo-transparent.png')} alt="For Builders" /></a>
-      <span>O próximo capítulo</span>
-      <a className="header-return" href={import.meta.env.BASE_URL}>Voltar ao início <span aria-hidden="true">↗</span></a>
+      <a href={home} aria-label="For Builders, voltar ao início"><img src={asset('logo-transparent.png')} alt="For Builders" /></a>
+      <span>Seu lugar está reservado</span>
+      <a className="header-return" href={home}>Voltar ao início <span aria-hidden="true">↗</span></a>
     </header>
     <main>
-      <section className="confirmation-intro" aria-labelledby="confirmation-title">
-        <p className="confirmation-eyebrow">For Builders <span aria-hidden="true">·</span> Uma leitura para quem constrói</p>
-        <h1 id="confirmation-title">Sua próxima leitura<br /><em>começa aqui.</em></h1>
-        <p className="confirmation-lede">IA, startups e negócios em uma edição que conecta o que aconteceu ao que você pode construir.</p>
-        <a className="confirmation-link" href="#edicao">Veja a edição ganhar vida <span aria-hidden="true">↓</span></a>
-      </section>
-      <section id="edicao" className="print-story" aria-label="Uma edição tomando forma na prensa">
-        <div className="print-sticky">
-          <div className="press-composition">
-            <div className="press-shadow" aria-hidden="true" />
-            <div className="press-stack">
-              <div className="paper-layer">
-                <img className="press-image press-paper" src={asset('confirmation-press.png')} alt="" />
-                <div className="paper-ink">
-                  <div className="paper-mark"><img src={asset('logo-transparent.png')} alt="" /><span>EDIÇÃO 001</span></div>
-                  <div className="paper-rule" />
-                  <p className="paper-category paper-description">IA · STARTUPS · NEGÓCIOS</p>
-                  <h2 className="paper-headline">A notícia passa.<br /><em>O contexto fica.</em></h2>
-                  <p className="paper-summary paper-description">Brasil e mundo, com ideias para levar ao seu projeto.</p>
-                </div>
-              </div>
-              <img className="press-image press-left" src={asset('confirmation-press.png')} alt="" />
-              <img className="press-image press-right" src={asset('confirmation-press.png')} alt="" />
-              <img className="press-image press-body" src={asset('confirmation-press.png')} alt="Uma prensa editorial imprimindo a primeira edição da For Builders" />
-              <img className="press-image press-wheel" src={asset('confirmation-press.png')} alt="" />
-              <div className="ink-glint" aria-hidden="true" />
-            </div>
-          </div>
-          <div className="story-progress" aria-hidden="true"><span /></div>
+      <section className="welcome" aria-labelledby="welcome-title"><div className="welcome-copy">
+        <p className="eyebrow">{isPreview ? 'PRÉVIA DA PÁGINA DE CONFIRMAÇÃO' : 'INSCRIÇÃO CONFIRMADA'}</p>
+        <h1 id="welcome-title">Bem-vindo<br /><em>à For Builders.</em></h1>
+        <p className="welcome-lede">{isPreview ? 'É assim que vamos receber você depois que a inscrição estiver conectada.' : 'Você entrou. Agora, a conversa continua na sua caixa de entrada.'}</p>
+        <div className="delivery"><span className="delivery-time">7h</span><span>A partir de amanhã, uma nova edição chega ao seu e-mail todas as manhãs.</span></div>
+        <p className="welcome-note">IA, startups e negócios do Brasil e do mundo. Aos sábados, um resumão para ligar os pontos da semana.</p>
+        <a className="scroll-link" href="#seu-lugar">Veja o lugar que espera por você <span aria-hidden="true">↓</span></a>
+      </div></section>
+      <section id="seu-lugar" className="courtyard-story" aria-label="Um lugar para quem constrói"><div className="courtyard-sticky">
+        <div className="courtyard-art" role="img" aria-label="Cadeira de mármore vazia em um terraço grego diante do mar">
+          <img className="scene-horizon" src={asset('horizonte.png')} alt="" />
+          <img className="scene-clouds" src={asset('nuvens.png')} alt="" />
+          <img className="scene-temples" src={asset('templo.png')} alt="" />
+          <div className="chair-shadow" aria-hidden="true" />
+          <img className="scene-chair" src={asset('confirmation-chair.png')} alt="" />
+          <img className="scene-foreground" src={asset('primeiro-plano.png')} alt="" />
         </div>
-      </section>
-      <section className="confirmation-outro" aria-labelledby="outro-title">
-        <p className="confirmation-eyebrow">O que vem pela frente</p>
-        <h2 id="outro-title">O mundo muda.<br /><em>Você constrói.</em></h2>
-        <p>Em cada leitura: o que aconteceu, por que importa e uma ideia para colocar em movimento.</p>
-        <a className="confirmation-link" href={import.meta.env.BASE_URL}>Voltar à For Builders <span aria-hidden="true">↗</span></a>
+        <div className="scene-caption"><span>FOR BUILDERS</span><h2>Tem lugar para<br /><em>a sua próxima ideia.</em></h2></div>
+      </div></section>
+      <section className="next-step" aria-labelledby="next-title">
+        <p className="eyebrow">ATÉ AMANHÃ</p><h2 id="next-title">O primeiro passo<br /><em>já foi dado.</em></h2>
+        <p>Às 7h, procure a For Builders na sua caixa de entrada. Se não encontrar a edição, confira também as abas Promoções e Spam.</p>
+        <a className="return-button" href={home}>Voltar à For Builders <span aria-hidden="true">↗</span></a>
       </section>
     </main>
     <footer className="confirmation-footer"><img src={asset('logo-transparent.png')} alt="For Builders" /><span>Para quem está construindo algo.</span></footer>
