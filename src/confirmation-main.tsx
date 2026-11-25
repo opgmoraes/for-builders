@@ -11,7 +11,6 @@ const home = import.meta.env.BASE_URL;
 function Confirmation() {
   const isPreview = new URLSearchParams(window.location.search).has('preview');
   useLayoutEffect(() => {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const context = gsap.context(() => {
       gsap.fromTo('.welcome-copy > *', { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: 0.85, stagger: 0.12, ease: 'power3.out' });
       gsap.timeline({ scrollTrigger: { trigger: '.courtyard-story', start: 'top top', end: 'bottom bottom', scrub: 1.5, invalidateOnRefresh: true } })
