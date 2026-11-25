@@ -21,7 +21,7 @@ function Confirmation() {
         .fromTo('.scene-foreground', { scale: 1.2, yPercent: 14 }, { scale: 1, yPercent: 0, duration: 2.2, ease: 'none' }, 0)
         .fromTo('.scene-chair', { autoAlpha: 0, xPercent: -50, yPercent: 28, scale: 0.82 }, { autoAlpha: 1, xPercent: -50, yPercent: 0, scale: 1, duration: 1.55, ease: 'power2.out' }, 0.38)
         .fromTo('.chair-shadow', { autoAlpha: 0, xPercent: -50, scale: 0.45 }, { autoAlpha: 0.45, xPercent: -50, scale: 1, duration: 1.5, ease: 'none' }, 0.42)
-        .fromTo('.scene-caption', { autoAlpha: 0, xPercent: -50, y: 30 }, { autoAlpha: 1, xPercent: -50, y: 0, duration: 0.8, ease: 'power2.out' }, 1.55);
+        .fromTo('.scene-caption', { autoAlpha: 0, y: 30 }, { autoAlpha: 1, y: 0, duration: 0.8, ease: 'power2.out' }, 1.55);
     });
     return () => context.revert();
   }, []);
@@ -45,6 +45,7 @@ function Confirmation() {
         <div className="courtyard-art" role="img" aria-label="Cadeira de mármore vazia em um terraço grego diante do mar">
           <img className="scene-horizon" src={asset('horizonte.png')} alt="" />
           <img className="scene-clouds" src={asset('nuvens.png')} alt="" />
+          <div className="scene-floor" aria-hidden="true" />
           <img className="scene-temples" src={asset('templo.png')} alt="" />
           <div className="chair-shadow" aria-hidden="true" />
           <img className="scene-chair" src={asset('confirmation-chair.png')} alt="" />
