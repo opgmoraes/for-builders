@@ -14,14 +14,15 @@ function Confirmation() {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const context = gsap.context(() => {
       gsap.fromTo('.welcome-copy > *', { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: 0.85, stagger: 0.12, ease: 'power3.out' });
-      gsap.timeline({ scrollTrigger: { trigger: '.courtyard-story', start: 'top top', end: 'bottom bottom', scrub: 1.4, invalidateOnRefresh: true } })
-        .fromTo('.scene-horizon', { scale: 1.12, yPercent: 5 }, { scale: 1, yPercent: 0, duration: 2.5, ease: 'none' }, 0)
-        .fromTo('.scene-clouds', { xPercent: -5, yPercent: 4 }, { xPercent: 3, yPercent: -4, duration: 2.5, ease: 'none' }, 0)
-        .fromTo('.scene-temples', { scale: 1.13, yPercent: 10 }, { scale: 1, yPercent: 0, duration: 2.2, ease: 'none' }, 0)
-        .fromTo('.scene-foreground', { scale: 1.2, yPercent: 14 }, { scale: 1, yPercent: 0, duration: 2.2, ease: 'none' }, 0)
-        .fromTo('.scene-chair', { autoAlpha: 0, xPercent: -50, yPercent: 28, scale: 0.82 }, { autoAlpha: 1, xPercent: -50, yPercent: 0, scale: 1, duration: 1.55, ease: 'power2.out' }, 0.38)
-        .fromTo('.chair-shadow', { autoAlpha: 0, xPercent: -50, scale: 0.45 }, { autoAlpha: 0.45, xPercent: -50, scale: 1, duration: 1.5, ease: 'none' }, 0.42)
-        .fromTo('.scene-caption', { autoAlpha: 0, y: 30 }, { autoAlpha: 1, y: 0, duration: 0.8, ease: 'power2.out' }, 1.55);
+      gsap.timeline({ scrollTrigger: { trigger: '.courtyard-story', start: 'top top', end: 'bottom bottom', scrub: 1.5, invalidateOnRefresh: true } })
+        .fromTo('.temple-distance', { scale: 1.12, yPercent: 3 }, { scale: 1, yPercent: 0, duration: 3, ease: 'none' }, 0)
+        .fromTo('.temple-clouds', { xPercent: -4, yPercent: 2, autoAlpha: 0.2 }, { xPercent: 4, yPercent: -2, autoAlpha: 0.44, duration: 3, ease: 'none' }, 0)
+        .fromTo('.temple-left', { xPercent: 0, scale: 1 }, { xPercent: -13, scale: 1.09, duration: 2.5, ease: 'none' }, 0)
+        .fromTo('.temple-right', { xPercent: 0, scale: 1 }, { xPercent: 13, scale: 1.09, duration: 2.5, ease: 'none' }, 0)
+        .fromTo('.temple-floor', { yPercent: 0, scale: 1 }, { yPercent: 7, scale: 1.13, duration: 2.5, ease: 'none' }, 0)
+        .fromTo('.temple-rays', { autoAlpha: 0.12, rotation: -9 }, { autoAlpha: 0.42, rotation: 0, duration: 2.3, ease: 'none' }, 0.2)
+        .fromTo('.temple-shade', { autoAlpha: 0.42 }, { autoAlpha: 0.2, duration: 2.5, ease: 'none' }, 0)
+        .fromTo('.scene-caption', { autoAlpha: 0, y: 36 }, { autoAlpha: 1, y: 0, duration: 1.1, ease: 'power2.out' }, 1.1);
     });
     return () => context.revert();
   }, []);
@@ -41,17 +42,17 @@ function Confirmation() {
         <p className="welcome-note">IA, startups e negócios do Brasil e do mundo. Aos sábados, um resumão para ligar os pontos da semana.</p>
         <a className="scroll-link" href="#seu-lugar">Veja o lugar que espera por você <span aria-hidden="true">↓</span></a>
       </div></section>
-      <section id="seu-lugar" className="courtyard-story" aria-label="Um lugar para quem constrói"><div className="courtyard-sticky">
-        <div className="courtyard-art" role="img" aria-label="Cadeira de mármore vazia em um terraço grego diante do mar">
-          <img className="scene-horizon" src={asset('horizonte.png')} alt="" />
-          <img className="scene-clouds" src={asset('nuvens.png')} alt="" />
-          <div className="scene-floor" aria-hidden="true" />
-          <img className="scene-temples" src={asset('templo.png')} alt="" />
-          <div className="chair-shadow" aria-hidden="true" />
-          <img className="scene-chair" src={asset('confirmation-chair.png')} alt="" />
-          <img className="scene-foreground" src={asset('primeiro-plano.png')} alt="" />
+      <section id="seu-lugar" className="courtyard-story" aria-label="O templo se abre para sua próxima ideia"><div className="courtyard-sticky">
+        <div className="courtyard-art" role="img" aria-label="Colunas de um templo grego se abrem sobre um pátio de pedra sob nuvens iluminadas">
+          <img className="temple-distance" src={asset('confirmation-temple-background.jpg')} alt="" />
+          <img className="temple-clouds" src={asset('confirmation-clouds.png')} alt="" />
+          <div className="temple-rays" aria-hidden="true" />
+          <img className="temple-left" src={asset('confirmation-temple-foreground.jpg')} alt="" />
+          <img className="temple-right" src={asset('confirmation-temple-foreground.jpg')} alt="" />
+          <img className="temple-floor" src={asset('confirmation-temple-foreground.jpg')} alt="" />
+          <div className="temple-shade" aria-hidden="true" />
         </div>
-        <div className="scene-caption"><span>FOR BUILDERS</span><h2>Tem lugar para<br /><em>a sua próxima ideia.</em></h2></div>
+        <div className="scene-caption"><span>FOR BUILDERS</span><h2>Tem lugar para<br /><em>a sua próxima ideia.</em></h2><p>Amanhã, às 7h, começa a sua primeira leitura.</p></div>
       </div></section>
       <section className="next-step" aria-labelledby="next-title">
         <p className="eyebrow">ATÉ AMANHÃ</p><h2 id="next-title">O primeiro passo<br /><em>já foi dado.</em></h2>
