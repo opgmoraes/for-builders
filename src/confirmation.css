@@ -35,3 +35,7 @@
 }
 .courtyard-story{height:300svh}
 @media(max-width:700px){.courtyard-story{height:260svh}}
+.courtyard-art>.temple-left,.courtyard-art>.temple-right{mask-image:none;filter:drop-shadow(0 10px 24px rgba(5,10,17,.32))}
+.courtyard-art>.temple-left{clip-path:inset(0 50% 0 0)}
+.courtyard-art>.temple-right{clip-path:inset(0 0 0 50%)}
+@media(max-width:700px){.courtyard-art>.temple-left,.courtyard-art>.temple-right{clip-path:none}}
