@@ -14,11 +14,11 @@ function Confirmation() {
     const context = gsap.context(() => {
       gsap.fromTo('.welcome-copy > *', { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: 0.85, stagger: 0.12, ease: 'power3.out' });
       gsap.timeline({ scrollTrigger: { trigger: '.courtyard-story', start: 'top top', end: 'bottom bottom', scrub: 1.5, invalidateOnRefresh: true } })
-        .fromTo('.temple-distance', { scale: 1.12, yPercent: 3 }, { scale: 1, yPercent: 0, duration: 3, ease: 'none' }, 0)
-        .fromTo('.temple-clouds', { xPercent: -4, yPercent: 2, autoAlpha: 0.2 }, { xPercent: 4, yPercent: -2, autoAlpha: 0.44, duration: 3, ease: 'none' }, 0)
-        .fromTo('.temple-left', { xPercent: 0, scale: 1 }, { xPercent: -13, scale: 1.09, duration: 2.5, ease: 'none' }, 0)
-        .fromTo('.temple-right', { xPercent: 0, scale: 1 }, { xPercent: 13, scale: 1.09, duration: 2.5, ease: 'none' }, 0)
-        .fromTo('.temple-floor', { yPercent: 0, scale: 1 }, { yPercent: 7, scale: 1.13, duration: 2.5, ease: 'none' }, 0)
+        .fromTo('.temple-distance', { scale: 1.2, yPercent: 5 }, { scale: 1, yPercent: 0, duration: 3, ease: 'none' }, 0)
+        .fromTo('.temple-clouds', { xPercent: -9, yPercent: 4, autoAlpha: 0.16 }, { xPercent: 9, yPercent: -4, autoAlpha: 0.48, duration: 3, ease: 'none' }, 0)
+        .fromTo('.temple-left', { xPercent: 23, scale: 1.12 }, { xPercent: -20, scale: 1.02, duration: 2.5, ease: 'none' }, 0)
+        .fromTo('.temple-right', { xPercent: -23, scale: 1.12 }, { xPercent: 20, scale: 1.02, duration: 2.5, ease: 'none' }, 0)
+        .fromTo('.temple-floor', { yPercent: -8, scale: 1.18 }, { yPercent: 8, scale: 1.03, duration: 2.5, ease: 'none' }, 0)
         .fromTo('.temple-rays', { autoAlpha: 0.12, rotation: -9 }, { autoAlpha: 0.42, rotation: 0, duration: 2.3, ease: 'none' }, 0.2)
         .fromTo('.temple-shade', { autoAlpha: 0.42 }, { autoAlpha: 0.2, duration: 2.5, ease: 'none' }, 0)
         .fromTo('.scene-caption', { autoAlpha: 0, y: 36 }, { autoAlpha: 1, y: 0, duration: 1.1, ease: 'power2.out' }, 1.1);

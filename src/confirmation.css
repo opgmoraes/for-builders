@@ -33,3 +33,5 @@
   .scene-caption h2{font-size:clamp(43px,10.5vw,68px)}
   .scene-caption p{font-size:13px;margin-top:18px}
 }
+.courtyard-story{height:300svh}
+@media(max-width:700px){.courtyard-story{height:260svh}}
